@@ -40,5 +40,5 @@ export const saveProducteInfo = (values:Record <string , any>) =>{
 
 export const getProducteInfo = (adminName:String) => producteModel.find({adminName})
 
-export const deleteProducteInfo = (adminName:String , producteName:String) => producteModel.findOneAndDelete({adminName , producteName})
-export const updateProducteInfo = (adminName:String , info:String) => producteModel.findOneAndUpdate({adminName , info})
+export const deleteProducteInfo = (_id:String) => producteModel.findOneAndDelete({_id})
+export const updateProducteInfo = (_id:String , values:Record<any , String>) => producteModel.findOneAndUpdate({_id , values})
