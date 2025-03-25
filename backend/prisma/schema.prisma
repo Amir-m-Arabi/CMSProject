@@ -28,4 +28,18 @@ model Admin{
   username String
   email String
   password String
+  createAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  product  Product[]
+}
+
+model Product{
+  id Int @id @default(autoincrement())
+  name String
+  price Int
+  description String
+  image String
+  inventory Int @default(0)
+  admin Admin @relation(fields: [adminId], references: [id] , onDelete:Cascade)
+  adminId Int
 }

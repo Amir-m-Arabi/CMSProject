@@ -6,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import routes from './routes';
+import path from 'path';
 // import swaggerOutput from './swagger-output.json';
 
 
@@ -20,6 +21,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/CMS', routes());
+app.use('/uploads' , express.static(path.join(__dirname, '../uploads')))
 app.use("/api-docs" , swaggerUi.serve , swaggerUi.setup())
 
 const PORT = process.env.PORT || 5000;
